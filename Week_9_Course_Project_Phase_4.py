@@ -40,8 +40,9 @@ def GetUserRole():
      while True:
          ####### write the if statement that validates that Admin or User has been entered. If true, return userrole.  If false, re-input userrole
          if userrole.lower() == "admin" or userrole.lower() == "user": #SW
-             print(userrole) #SW
-             break #SW
+#             print(userrole) #SW
+#             break #SW
+            return userrole #Help from professor Snyder
          else: #SW
              print("Invalid role. Please enter either Admin or User") #SW
 
@@ -197,5 +198,6 @@ if __name__ == "__main__":
         # close file to save data
             EmpFile.close()    
         printinfo(DetailsPrinted)
+    
     
     
