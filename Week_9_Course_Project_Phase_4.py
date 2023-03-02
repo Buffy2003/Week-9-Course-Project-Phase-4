@@ -12,7 +12,7 @@ def CreateUsers():
     while True:
         ########## Write the line of code that will call function GetUserName and assign the return value to username
         username = GetUserName()  
-        if (username.upper() == "END"):
+        if (username.upper() == "END"):  ### I think this is where the read user.txt file should be
             break
         ########## Write the line of code that will call function GetUserPassword and assign the return value to userpwd
         userpwd = GetUserPassword() #SW
@@ -45,6 +45,7 @@ def GetUserRole():
             return userrole #Help from professor Snyder
          else: #SW
              print("Invalid role. Please enter either Admin or User") #SW
+             GetUserRole() #SW
 
 def printuserinfo():
     UserFile = open("users.txt","r")
