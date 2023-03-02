@@ -7,22 +7,26 @@ from datetime import datetime
 def CreateUsers():
     print('##### Create users, passwords, and roles #####')
     ########## Open the file user.txt in append mode and assign to UserFile
-    UserFile = open('users.txt', 'a')  #SW
+    UserFile = open('users.txt', 'a')
      
     while True:
         ########## Write the line of code that will call function GetUserName and assign the return value to username
         username = GetUserName()  
-        if (username.upper() == "END"):  ### I think this is where the read user.txt file should be
+        if (username.upper() == "END"):
+            with open('users.txt', 'r') as file:
+                contents = file.read()
+                print(contents)
+            print("IT PRINTS BUT IT'S NOT RIGHT!")
             break
         ########## Write the line of code that will call function GetUserPassword and assign the return value to userpwd
-        userpwd = GetUserPassword() #SW
+        userpwd = GetUserPassword()
         ########## Write the line of code that will call function GetUserRole() and assign the return value to userrole
-        userrole = GetUserRole() #SW
+        userrole = GetUserRole()
         UserDetail = username + "|" + userpwd + "|" + userrole + "\n"  
         UserFile.write(UserDetail)
     # close file to save data
     ########## Write the line of code that will close the file UserFile
-    UserFile.close()   #SW
+    UserFile.close()
    
  
 def GetUserName():
@@ -39,13 +43,11 @@ def GetUserRole():
      userrole = input("Enter role (Admin or User): ")
      while True:
          ####### write the if statement that validates that Admin or User has been entered. If true, return userrole.  If false, re-input userrole
-         if userrole.lower() == "admin" or userrole.lower() == "user": #SW
-#             print(userrole) #SW
-#             break #SW
+         if userrole.lower() == "admin" or userrole.lower() == "user":
             return userrole #Help from professor Snyder
-         else: #SW
-             print("Invalid role. Please enter either Admin or User") #SW
-             GetUserRole() #SW
+         else:
+             print("Invalid role. Please enter either Admin or User")
+             
 
 def printuserinfo():
     UserFile = open("users.txt","r")
@@ -65,19 +67,19 @@ def printuserinfo():
 def Login():
         # read login information and store in a list
     ########## Write the line of code that will open the file Users.txt in read mode
-    UserFile = open("users.txt", "r") #SW
+    UserFile = open("users.txt", "r")
    
     UserName = input("Enter User Name: ")
     UserRole = "None"
     while True:
        ########## Write the line of code that will read a line from UserFile and assign it to UserDetail
-       UserDetail = UserFile.readline()      #SW
+       UserDetail = UserFile.readline()
        if not UserDetail:
            return UserRole, UserName
        ########## Write the line of code that will replace the carriage return in UserDetail
        UserDetail = UserDetail.replace("\n", "")
        ########## Write the line of code that will split UserDetail on the pipe delimiter (|) and assign it to UserList
-       UserList = UserDetail.split("|")          #SW
+       UserList = UserDetail.split("|")
        if UserName == UserList[0]:
             UserRole = UserList[2]  # user is valid, return role
             return UserRole, UserName
@@ -174,16 +176,16 @@ if __name__ == "__main__":
     print()
     print("##### Data Entry #####")
     ########## Write the line of code to assign UserRole and UserName to the function Login
-    UserRole, UserName = Login()  #SW
+    UserRole, UserName = Login()
     DetailsPrinted = False  ###
     EmpTotals = {} ###
     ########## Write the if statement that will check to see if UserRole is equal to NONE (NOTE: code will show red error lines until this line is written)
-    if UserRole == None: #SW
+    if UserRole == None:
         print(UserName," is invalid.")
     else:
     # only admin users can enter data
         ##### write the if statement that will check to see if the UserRole is equal to ADMIN (NOTE: code will show red error lines until this line is written)
-        if UserRole == "Admin": #SW
+        if UserRole == "Admin":
    
             EmpFile = open("Employees.txt", "a+")                
             while True:
@@ -199,6 +201,3 @@ if __name__ == "__main__":
         # close file to save data
             EmpFile.close()    
         printinfo(DetailsPrinted)
-    
-    
-    
