@@ -13,10 +13,6 @@ def CreateUsers():
         ########## Write the line of code that will call function GetUserName and assign the return value to username
         username = GetUserName()  
         if (username.upper() == "END"):
-            with open('users.txt', 'r') as file:
-                contents = file.read()
-                print(contents)
-            print("IT PRINTS BUT IT'S NOT RIGHT!")
             break
         ########## Write the line of code that will call function GetUserPassword and assign the return value to userpwd
         userpwd = GetUserPassword()
@@ -27,6 +23,7 @@ def CreateUsers():
     # close file to save data
     ########## Write the line of code that will close the file UserFile
     UserFile.close()
+    printuserinfo()
    
  
 def GetUserName():
@@ -46,7 +43,7 @@ def GetUserRole():
          if userrole.lower() == "admin" or userrole.lower() == "user":
             return userrole #Help from professor Snyder
          else:
-             print("Invalid role. Please enter either Admin or User")
+            print("Invalid role. Please enter either Admin or User")
              
 
 def printuserinfo():
