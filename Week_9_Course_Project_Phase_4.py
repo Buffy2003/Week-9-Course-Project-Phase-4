@@ -114,6 +114,7 @@ def printinfo(DetailsPrinted):
             break
         try:
             rundate = datetime.strptime(rundate, "%m/%d/%Y")
+
             break
         except ValueError:
             print("Invalid date format. Try again.")
@@ -174,13 +175,12 @@ if __name__ == "__main__":
     DetailsPrinted = False  ###
     EmpTotals = {} ###
     ########## Write the if statement that will check to see if UserRole is equal to NONE (NOTE: code will show red error lines until this line is written)
-    if UserRole == None:
+    if UserRole == "None":
         print(UserName," is invalid.")
     else:
     # only admin users can enter data
         ##### write the if statement that will check to see if the UserRole is equal to ADMIN (NOTE: code will show red error lines until this line is written)
-        if UserRole == "Admin":
-   
+        if UserRole == "Admin":   
             EmpFile = open("Employees.txt", "a+")                
             while True:
                 empname = GetEmpName()
