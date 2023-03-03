@@ -43,7 +43,8 @@ def GetUserRole():
          if userrole.lower() == "admin" or userrole.lower() == "user":
             return userrole #Help from professor Snyder
          else:
-            input("Invalid role. Please enter either Admin or User")
+            input("Invalid role. Please enter either Admin or User: ")
+
              
 
 def printuserinfo():
