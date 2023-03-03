@@ -25,7 +25,6 @@ def CreateUsers():
     UserFile.close()
     printuserinfo()
    
- 
 def GetUserName():
     ##### write the code to enter the username or End and return username
     username = input("Enter the Username or 'END' to quit: ")
@@ -41,12 +40,10 @@ def GetUserRole():
      while True:
          ####### write the if statement that validates that Admin or User has been entered. If true, return userrole.  If false, re-input userrole
          if userrole.lower() == "admin" or userrole.lower() == "user":
-            return userrole #Help from professor Snyder
+            return userrole
          else:
-            input("Invalid role. Please enter either Admin or User: ")
-
-             
-
+            userrole = input("Invalid role. Please enter either Admin or User: ")
+                       
 def printuserinfo():
     UserFile = open("users.txt","r")
     while True:
@@ -66,7 +63,6 @@ def Login():
         # read login information and store in a list
     ########## Write the line of code that will open the file Users.txt in read mode
     UserFile = open("users.txt", "r")
-   
     UserName = input("Enter User Name: ")
     UserRole = "None"
     while True:
@@ -81,14 +77,14 @@ def Login():
        if UserName == UserList[0]:
             UserRole = UserList[2]  # user is valid, return role
             return UserRole, UserName
-    return UserRole, UserName
+
 #########################################################################################
 def GetEmpName():
     empname = input("Enter employee name: ")
     return empname
 def GetDatesWorked():
-    fromdate = input("Enter Start Date (mm/dd/yyyy: ")
-    todate = input("Enter End Date (mm/dd/yyyy: ")
+    fromdate = input("Enter Start Date (mm/dd/yyyy): ")
+    todate = input("Enter End Date (mm/dd/yyyy): ")
     return fromdate, todate
 def GetHoursWorked():
     hours = float(input('Enter amount of hours worked:  '))
