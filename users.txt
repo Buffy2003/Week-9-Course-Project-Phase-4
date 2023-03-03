@@ -1,4 +1,2 @@
-Shelly|Thisismypw|Admin
-Buffy|passwordsaresilly|user
-Robert|ROBERTINA!|Admin
-Test|Test|Admin
+Shelly|ShellysPW|Admin
+Sharon|SharonsPW|User
